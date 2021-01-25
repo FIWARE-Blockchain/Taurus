@@ -1,0 +1,37 @@
+{
+	"info": {
+		"_postman_id": "97229e54-4c06-47ed-bd89-d215c4308984",
+		"name": "Taurus API",
+		"description": "Testing Taurus implementation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Config Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"id\":\"event-identifier\",\n   \"interval\": 10,\n   \"contractAddress\":\"0x1d7ed2a2fa45266e8ae371cf97593e7e40ad06e7\",\n   \"eventSpecification\":{\n      \"eventName\":\"TestEvent\",\n      \"indexedParameterDefinitions\":[\n         {\n            \"position\":0,\n            \"type\":\"UINT256\"\n         },\n         {\n            \"position\":1,\n            \"type\":\"ADDRESS\"\n         }\n      ],\n      \"nonIndexedParameterDefinitions\":[\n         {\n            \"position\":2,\n            \"type\":\"BYTES32\"\n         },\n         {\n            \"position\":3,\n            \"type\":\"STRING\"\n         }\n      ]\n   },\n   \"abi\":[\n      {\n         \"constant\":true,\n         \"inputs\":[\n            {\n               \"name\":\"\",\n               \"type\":\"uint256\"\n            }\n         ],\n         \"name\":\"_assets\",\n         \"outputs\":[\n            {\n               \"name\":\"_id\",\n               \"type\":\"string\"\n            },\n            {\n               \"name\":\"_name\",\n               \"type\":\"string\"\n            },\n            {\n               \"name\":\"_type\",\n               \"type\":\"string\"\n            },\n            {\n               \"name\":\"_description\",\n               \"type\":\"string\"\n            },\n            {\n               \"name\":\"_owner\",\n               \"type\":\"string\"\n            },\n            {\n               \"name\":\"_hasParent\",\n               \"type\":\"string\"\n            }\n         ],\n         \"payable\":false,\n         \"stateMutability\":\"view\",\n         \"type\":\"function\"\n      },\n      {\n         \"constant\":true,\n         \"inputs\":[\n            \n         ],\n         \"name\":\"_totalAssets\",\n         \"outputs\":[\n            {\n               \"name\":\"\",\n               \"type\":\"uint256\"\n            }\n         ],\n         \"payable\":false,\n         \"stateMutability\":\"view\",\n         \"type\":\"function\"\n      },\n      {\n         \"inputs\":[\n            \n         ],\n         \"payable\":false,\n         \"stateMutability\":\"nonpayable\",\n         \"type\":\"constructor\"\n      },\n      {\n         \"anonymous\":false,\n         \"inputs\":[\n            {\n               \"indexed\":false,\n               \"name\":\"_id\",\n               \"type\":\"string\"\n            },\n            {\n               \"indexed\":false,\n               \"name\":\"_name\",\n               \"type\":\"string\"\n            },\n            {\n               \"indexed\":false,\n               \"name\":\"_type\",\n               \"type\":\"string\"\n            },\n            {\n               \"indexed\":false,\n               \"name\":\"_desc\",\n               \"type\":\"string\"\n            },\n            {\n               \"indexed\":false,\n               \"name\":\"_owner\",\n               \"type\":\"string\"\n            }\n         ],\n         \"name\":\"AssetEvent\",\n         \"type\":\"event\"\n      },\n      {\n         \"constant\":false,\n         \"inputs\":[\n            {\n               \"name\":\"asset_id\",\n               \"type\":\"string\"\n            },\n            {\n               \"name\":\"asset_name\",\n               \"type\":\"string\"\n            },\n            {\n               \"name\":\"asset_type\",\n               \"type\":\"string\"\n            },\n            {\n               \"name\":\"asset_desc\",\n               \"type\":\"string\"\n            },\n            {\n               \"name\":\"asset_owner\",\n               \"type\":\"string\"\n            },\n            {\n               \"name\":\"asset_parent\",\n               \"type\":\"string\"\n            }\n         ],\n         \"name\":\"addAsset\",\n         \"outputs\":[\n            {\n               \"name\":\"_count\",\n               \"type\":\"uint256\"\n            }\n         ],\n         \"payable\":false,\n         \"stateMutability\":\"nonpayable\",\n         \"type\":\"function\"\n      }\n   ]\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/config/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"config",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -18,6 +18,8 @@ class Migration(migrations.Migration):
                 ('contractAddress', models.CharField(max_length=255)),
                 ('eventSpecification', models.CharField(max_length=255)),
                 ('date', models.DateTimeField(auto_now=True)),
+                ('abi', models.CharField(max_length=255)),
+                ('interval', models.IntegerField())
             ],
         ),
     ]
