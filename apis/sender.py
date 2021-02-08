@@ -40,6 +40,9 @@ def sendToOrion(data):
 	  
 	# }
 
+	#TODO 
+	#CHECK DATA FORMAT
+
 	r_headers = {'Content-Type': 'application/json'}
 
 	r = requests.post(

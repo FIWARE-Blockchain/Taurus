@@ -16,17 +16,9 @@ def check_connection(url):
     # main(w3)
     return w3.isConnected()
     
-def handle_event(event, contract):    
-    receipt = w3.eth.waitForTransactionReceipt(event['transactionHash'])
-    result = contract.events.greeting.processReceipt(receipt)
-    print(result[0]['args'])
-
-def log_loop(event_filter, poll_interval, contract):
-    print("Thread loop")
-    sendToOrion("")
-    while True:
-        for event in event_filter.get_new_entries():
-          print("Thread loop event")
-          handle_event(event, contract)
-          time.sleep(poll_interval)
-
+def handle_event(event_filter, contract):
+    for event in event_filter.get_new_entries():
+      receipt = w3.eth.waitForTransactionReceipt(event['transactionHash'])
+      result = contract.events.greeting.processReceipt(receipt)
+      print(result[0]['args'])
+      sendToOrion(result[0]['args'])

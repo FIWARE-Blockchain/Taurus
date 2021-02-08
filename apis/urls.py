@@ -5,5 +5,4 @@ urlpatterns = [
 #    path('config/', configs),
    path('task/', task),
    path('config/', configs)
-
 ]
