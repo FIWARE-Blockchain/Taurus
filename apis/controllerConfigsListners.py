@@ -3,14 +3,13 @@ from .serializers import ConfigSerializer
 from .eth_listners import handle_event
 from web3 import Web3
 from concurrent.futures import ThreadPoolExecutor
-import threading
 import json
 import time
 
 def listnerLoop():
     #TODO - CHANGE URL TO A VARIABLE IN CONFIG
     try:
-        w3 = Web3(Web3.HTTPProvider('http://localhost:8545'))
+        w3 = Web3(Web3.HTTPProvider('http://46.17.108.87:8545'))
         print (w3.isConnected())
     except Exception as e: 
         print("Web3 connection error!")
@@ -26,18 +25,16 @@ def listnerLoop():
 
         json_object = json.loads(jsonConfigs)
         for element in json_object:
-            print (element['id'])
             try:
+                print ("Id: " + str(element['id']))
                 contractAddress = w3.toChecksumAddress(element['contractAddress'])
                 abiStr = element['abi']
                 abiStr = abiStr.replace("\'", "\"")
-                abiStr = abiStr.lower()
-                print (abiStr)               
+                abiStr = abiStr.lower()              
                 abiJson = json.loads(abiStr)                  
                 block_filter = w3.eth.filter({'fromBlock':'latest', 'address':contractAddress})            
                 contract = w3.eth.contract(address=contractAddress, abi=abiJson)
-                print ("Contract created!")
-
+                
                 task = executor.submit(handle_event(block_filter, contract))
                 
             except Exception as e: 

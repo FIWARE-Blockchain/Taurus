@@ -18,7 +18,11 @@ def check_connection(url):
     
 def handle_event(event_filter, contract):
     for event in event_filter.get_new_entries():
-      receipt = w3.eth.waitForTransactionReceipt(event['transactionHash'])
-      result = contract.events.greeting.processReceipt(receipt)
-      print(result[0]['args'])
-      sendToOrion(result[0]['args'])
+      try:
+        receipt = w3.eth.waitForTransactionReceipt(event['transactionHash'])
+        result = contract.events.greeting.processReceipt(receipt)
+        print("Result: " + result[0]['args'])
+        sendToOrion(result[0]['args'])
+
+      except Exception as e: 
+        print(e)

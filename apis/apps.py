@@ -6,4 +6,7 @@ class ApisConfig(AppConfig):
     def ready(self):
         print ("Starting 1...")        
         from .controllerConfigsListners import listnerLoop
-        listnerLoop()
+        import threading
+        x = threading.Thread(target=listnerLoop)
+        x.start()
+
