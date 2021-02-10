@@ -21,6 +21,7 @@ def handle_event(event_filter, contract):
       try:
         receipt = w3.eth.waitForTransactionReceipt(event['transactionHash'])
         result = contract.events.greeting.processReceipt(receipt)
+        print(result)
         print("Result: " + result[0]['args'])
         sendToOrion(result[0]['args'])
 

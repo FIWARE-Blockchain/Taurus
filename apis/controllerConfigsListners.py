@@ -8,9 +8,10 @@ import time
 
 def listnerLoop():
     #TODO - CHANGE URL TO A VARIABLE IN CONFIG
+    url = "http://localhost:8545"
     try:
-        w3 = Web3(Web3.HTTPProvider('http://46.17.108.87:8545'))
-        print (w3.isConnected())
+        w3 = Web3(Web3.HTTPProvider(url))
+        print (str(w3.isConnected()) + " - connected in " + url)
     except Exception as e: 
         print("Web3 connection error!")
         print(e)

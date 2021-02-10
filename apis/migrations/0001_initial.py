@@ -16,7 +16,6 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('contractAddress', models.CharField(max_length=255)),
-                ('eventSpecification', models.CharField(max_length=255)),
                 ('date', models.DateTimeField(auto_now=True)),
                 ('abi', models.CharField(max_length=255)),
                 ('interval', models.IntegerField())

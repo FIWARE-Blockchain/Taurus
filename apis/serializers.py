@@ -5,8 +5,7 @@ from .models import Config
 
 
 class ConfigSerializer(serializers.ModelSerializer):
-    eventSpecification = serializers.JSONField()
     abi = serializers.JSONField()
     class Meta:
         model = Config
-        fields = ['id', 'contractAddress', 'eventSpecification', 'abi', 'interval']
+        fields = ['id', 'contractAddress', 'abi', 'interval']
