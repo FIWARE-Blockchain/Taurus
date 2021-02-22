@@ -9,7 +9,7 @@ Taurus is a blockchain listner that supports various DLT, the listner aims to li
 
 # Architecture
 ## Taurus Architecture
-<img src="https://github.com/FIWARE-Blockchain/Taurus/blob/master/docs/images/architecture.png" width="300">
+<img src="https://github.com/FIWARE-Blockchain/Taurus/blob/master/docs/images/architecture.png" width="800">
 
 ## Supported DLT Clients
 - [x] Ethereum 
