@@ -42,7 +42,7 @@ def listnerLoop():
                 contract = w3.eth.contract(address=contractAddress, abi=abiJson)
                 
                 #block_filter = w3.eth.filter({'fromBlock':0})
-                #block_filter = w3.eth.filter({'fromBlock':"0x0", 'address':contractAddress})
+                #block_filter = w3.eth.filter({'fromBlock':'latest', 'address':contractAddress})
 
                 block_filter = w3.eth.filter({'fromBlock':"0x0", 'address':contractAddress})
 
