@@ -25,7 +25,19 @@ def configs(request):
         return JsonResponse(serializer.errors, status=404)
 
 def task(request):
-    status = check_connection('http://localhost:8545')
+
+    #Read config.ini file    
+    config_file = os.path.join(os.path.dirname(__file__), 'config.ini')
+
+    config_object = ConfigParser()
+    config_object.read(config_file)
+    config_object.sections()
+
+    ethereum_info = config_object["ETHEREUM"]
+
+    url = ethereum_info["url"] + ":" + ethereum_info["port"]
+
+    status = check_connection(url)
     print('working')
     print(status)
     demo_task('i am working now')

@@ -3,13 +3,24 @@ from .serializers import ConfigSerializer
 from .eth_listners import handle_event
 from web3 import Web3
 from concurrent.futures import ThreadPoolExecutor
+from configparser import ConfigParser
 import json
 import time
-import traceback 
+import traceback
+import os
+
 
 def listnerLoop():
-    #TODO - CHANGE URL TO A VARIABLE IN CONFIG
-    url = "http://46.17.108.87:8545"
+    #Read config.ini file    
+    config_file = os.path.join(os.path.dirname(__file__), 'config.ini')
+
+    config_object = ConfigParser()
+    config_object.read(config_file)
+    config_object.sections()
+
+    ethereum_info = config_object["ETHEREUM"]
+
+    url = ethereum_info["url"] + ":" + ethereum_info["port"]
     try:
         w3 = Web3(Web3.HTTPProvider(url, request_kwargs={'timeout': 60}))
         print ("Connection in " + url + " :"+ str(w3.isConnected()))
@@ -20,6 +31,10 @@ def listnerLoop():
 
     poll_interval = 10    
     executor = ThreadPoolExecutor(max_workers=5)
+
+
+    orion_info = config_object["ORION"]
+    orion_endpoint= orion_info["url"] + ":" + orion_info["port"]
 
     while True:
         configs = Config.objects.all()        
@@ -48,7 +63,7 @@ def listnerLoop():
 
                 #block_filter = contract.events.LogEvent.createFilter(fromBlock="0x0", toBlock='latest')            
                    
-                task = executor.submit(handle_event(block_filter, contract, w3))
+                task = executor.submit(handle_event(block_filter, contract, w3, orion_endpoint))
                 
             except Exception as e: 
                 print("Error: creating contract")

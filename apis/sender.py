@@ -1,44 +1,13 @@
 import json
+import os
 import requests
+from configparser import ConfigParser
 
-def sendToOrion(data): 
-	orion_endpoint="http://localhost:1026/"
 
-	url_query=(orion_endpoint + "/v1/contextEntities")
-	# body_dict = {
-		  
-	#      "type":"Transaction",
-	#      "isPattern":"false",
-	#      "id":"tr0002",
-	#      "attributes":[  
-	#         {  
-	#            "name":"transactionType",
-	#            "type":"String",
-	#            "value":"TransferLand"
-	#         },
-	#         {  
-	#            "name":"VendorPublicKey",
-	#            "type":"float",
-	#            "value":"-5.809901"
-	#         },
-	#         {  
-	#            "name":"BuyerPublicKey",
-	#            "type":"float",
-	#            "value":"-8.809901"
-	#         },
-	#         {  
-	#            "name":"LandPublicKey",
-	#            "type":"float",
-	#            "value":"-5.809901"
-	#         },
-	#         {  
-	#            "name":"Value",
-	#            "type":"float",
-	#            "value":"350000"
-	#         }
-	#      ]
-	  
-	# }
+def sendToOrion(data, url): 
+	
+
+	url_query=(url + "/v1/contextEntities")
 
 	#TODO 
 	#CHECK DATA FORMAT

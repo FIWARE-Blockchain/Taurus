@@ -12,7 +12,7 @@ def print_time( threadName, delay):
       count += 1
       print ("%s: %s" % ( threadName, time.ctime(time.time()) ))
     
-def handle_event(event_filter, contract, w3):
+def handle_event(event_filter, contract, w3, orionUrl):
 
     print ("Length: " + str(len(event_filter.get_all_entries())))
 
@@ -28,7 +28,7 @@ def handle_event(event_filter, contract, w3):
         result1 = contract.events.LogOtherEvent().processReceipt(receipt, errors=IGNORE)
         print(result1)
 
-        # sendToOrion(result[0]['args'])
+        sendToOrion(result[0]['args'], orionUrl)
 
       except Exception as e: 
         print (e)
