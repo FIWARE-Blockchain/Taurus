@@ -40,6 +40,15 @@ docker build -t taurus .
 docker run taurus
 ```
 
+### Running tests
+1. Install python3 and pip3
+2. Run following commands:
+```
+pip3 install -r requirements.txt
+python3 manage.py test
+```
+
+
 ### Configuration
 Send a POST request to add a new listener configuration according to the Postman Collection example.
 

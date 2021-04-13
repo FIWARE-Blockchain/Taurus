@@ -21,3 +21,5 @@ def sendToOrion(data, url):
 	)
 
 	print(r.content)
+
+	return r

@@ -30,7 +30,7 @@ def listnerLoop():
         print(e)
 
     poll_interval = 10    
-    executor = ThreadPoolExecutor(max_workers=5)
+    executor = ThreadPoolExecutor(int(config_object["THREAD"]["max_workers"]))
 
 
     orion_info = config_object["ORION"]
