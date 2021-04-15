@@ -1,0 +1,95 @@
+FORMAT: 1A
+HOST: http://localhost:8000/
+
+# Taurus - Blockchain Listner(for PoweredBy 'FIWARE Architectures')
+
+Taurus is a blockchain listner that supports various DLT, the listner aims to listen Blockchain Events and store data in FIWARE.
+
+
+## Configuration [/config]
+
+### List all configurations [GET]
++ Response 200 (application/json)
+
+		[
+    		{
+        		"id": 1,
+        		"contractAddress": "0xed9d02e382b34818e88b88a309c7fe71e65f419d",
+        		"abi": "[{'anonymous': False, 'name': 'LogEvent', 'inputs': [{'indexed': False, 'name': '_x', 'type': 'uint256', 'internalType': 'uint256'}], 'type': 'event', 'payable': False}, {'anonymous': False, 'name': 'LogOtherEvent', 'inputs': [{'indexed': True, 'name': '_sender', 'type': 'address', 'internalType': 'address'}], 'type': 'event', 'payable': False}, {'constant': False, 'name': 'emitEvent', 'inputs': [{'name': 'x', 'type': 'uint256', 'internalType': 'uint256'}], 'outputs': [], 'type': 'function', 'payable': False, 'stateMutability': 'nonpayable'}, {'constant': False, 'name': 'emitOtherEvent', 'inputs': [], 'outputs': [], 'type': 'function', 'payable': False, 'stateMutability': 'nonpayable'}]",
+        		"interval": 10
+    		},
+    		{
+        		"id": 2,
+        		"contractAddress": "0xed9d02e382b34818e88b88a309c7fe71e65f419d",
+        		"abi": "[{'inputs': [{'name': '_x', 'type': 'uint256'}], 'name': 'LogEvent', 'type': 'event'}, {'inputs': [{'indexed': True, 'name': '_sender', 'type': 'address'}], 'name': 'LogOtherEvent', 'type': 'event'}]",
+        		"interval": 10
+    		}
+		]
+        
+## Health [/health]
+### Get the Health of Connected Node and Instances [GET]
++ Request (application/json)
+
+    {
+       "id":"event-identifier",
+       "interval": 10,
+       "contractAddress":"0x1349f3e1b8d71effb47b840594ff27da7e603d17",
+       "abi": [
+            {
+                "inputs": [
+            {
+                "name": "_x",
+                "type": "uint256"
+            }
+            ],
+                "anonymous":false,
+                "name": "LogEvent",
+                "type": "event"
+            },
+            {
+                "inputs": [
+                {
+                "indexed": true,
+                "name": "_sender",
+                "type": "address"
+            }
+            ],
+                "anonymous":false,
+                "name": "LogOtherEvent",
+                "type": "event"
+            }
+        ]
+    }
++ Response 200 (application/json)
+
+    + Body
+    {
+        "id": 7,
+        "contractAddress": "0x1349f3e1b8d71effb47b840594ff27da7e603d17",
+        "abi": [
+            {
+                "inputs": [
+                    {
+                        "name": "_x",
+                        "type": "uint256"
+                    }
+                ],
+                "anonymous": false,
+                "name": "LogEvent",
+                "type": "event"
+            },
+            {
+                "inputs": [
+                    {
+                        "indexed": true,
+                        "name": "_sender",
+                        "type": "address"
+                    }
+                ],
+                "anonymous": false,
+                "name": "LogOtherEvent",
+                "type": "event"
+            }
+        ],
+        "interval": 10
+    }
