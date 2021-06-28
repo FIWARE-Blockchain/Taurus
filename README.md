@@ -1,8 +1,10 @@
-# Taurus - FIWARE Blockchain Listner
+# Taurus - FIWARE DLT Listner
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![CodeQL](https://github.com/FIWARE-Blockchain/Taurus/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/FIWARE-Blockchain/Taurus/actions/workflows/codeql-analysis.yml)
+[![publish mkdocs](https://github.com/FIWARE-Blockchain/Taurus/actions/workflows/documentation.yml/badge.svg)](https://github.com/FIWARE-Blockchain/Taurus/actions/workflows/documentation.yml)
 
-Taurus is a blockchain listner that supports various DLT, the listner aims to listen Blockchain Events and store data in FIWARE. This component compliments FIWARE as an OffChainDB.
+Taurus is a DLT listener that supports various blockchain and DLT, and the listener aims to listen to events and store data in FIWARE. This component compliments FIWARE as an OffChainDB.
 
 
 |  <img src="https://assets.getpostman.com/common-share/postman-logo-stacked.svg" align="center" height="25"> [Postman Collections](https://documenter.getpostman.com/view/487008/TWDXpciC) | 
