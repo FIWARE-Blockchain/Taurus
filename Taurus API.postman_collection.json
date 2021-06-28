@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \"id\":\"event-identifier\",\n   \"interval\": 10,\n   \"contractAddress\":\"0xBca0fDc68d9b21b5bfB16D784389807017B2bbbc\",\n   \"abi\": [\n{\n\"inputs\": [\n{\n\"name\": \"_x\",\n\"type\": \"uint256\"\n}\n],\n\"name\": \"LogEvent\",\n\"type\": \"event\"\n},\n{\n\"inputs\": [\n{\n\"indexed\": true,\n\"name\": \"_sender\",\n\"type\": \"address\"\n}\n],\n\"name\": \"LogOtherEvent\",\n\"type\": \"event\"\n}\n]\n}"
+					"raw": "{\n   \"id\":\"event-identifier\",\n   \"interval\": 10,\n   \"contractAddress\":\"0x1349f3e1b8d71effb47b840594ff27da7e603d17\",\n   \"abi\": [\n{\n\"insd [\n{\n\"name\": \"_x\",\n\"type\": \"uint256\"\n}\n],\n\"anonymous\":false,\n\"name\": \"LogEvent\",\n\"type\": \"event\"\n},\n{\n\"inputs\": [\n{\n\"indexed\": true,\n\"name\": \"_sender\",\n\"type\": \"address\"\n}\n],ame\": \"LogOtherEvent\",\n\"type\": \"event\"\n}\n]\n}"
 				},
 				"url": {
 					"raw": "http://127.0.0.1:8000/config/",
@@ -67,6 +67,75 @@
 					"path": [
 						"config",
 						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Config Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/config/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"config",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Configs GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/config/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"config",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConfigByID GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/config/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"config",
+						"1"
 					]
 				}
 			},
