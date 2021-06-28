@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import configs, task
+from .views import version, configs, task, configByID
 
 urlpatterns = [
-#    path('config/', configs),
-   path('task/', task),
-   path('config/', configs)
+   path('version/', version),
+   path('task/', task),   
+   path('config/', configs),
+   path('config/<int:id>', configByID)
 ]

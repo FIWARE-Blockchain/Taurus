@@ -2,11 +2,30 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
+from configparser import ConfigParser
 
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'taurus.settings')
+
+
+    #Read config.ini file    
+    config_file = os.path.join('.', 'apis' , 'config.ini')
+
+    print(config_file)
+
+    config_object = ConfigParser()
+    config_object.read(config_file)
+    config_object.sections()
+
+    taurus_info = config_object["TAURUS"]
+
+    port = taurus_info["port"]
+
+    # Override default port for `runserver` command
+    from django.core.management.commands.runserver import Command as runserver
+    runserver.default_port = port
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
