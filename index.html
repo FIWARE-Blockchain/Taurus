@@ -109,16 +109,17 @@
 <h2 id="architecture">Architecture</h2>
 <p>TAURUS IN POWERED BY FIWARE ARCHITECTURE</p>
 <h3 id="flow-diagram">Flow Diagram</h3>
-<p>The way Taurus work's in 'Powered By FIWARE' architecture as follows:</p>
+<p>The way Taurus work's in 'Powered By FIWARE' architecture as follows:
+<img alt="Architecture Diagram" src="https://github.com/FIWARE-Blockchain/Taurus/blob/master/docs/images/architecture.png" /></p>
 <ol>
 <li>A post request "/config" from the user consists of the contract Address and attributes to listen to when a new transaction was added in a DLT.</li>
 <li>Taurus creates a new listener in the background to listen to the DLT according configuration requested.</li>
 <li>When a new transaction is added with the same contract Address previously  registered, a listener captures this information and sends it to FIWARE context Broker.</li>
 </ol>
 <p>SUPPORTED DLT CLIENTS
-[x] Ethereum</p>
-<p>[  ] IOTA</p>
-<p>[  ] FABRIC Chaincode</p>
+- [x] Ethereum
+- [ ] IOTA
+- [ ] FABRIC Chaincode</p>
 <p>DEPENDENCIES:</p>
 <p>This project uses: python3 and pip3</p>
               
@@ -178,6 +179,6 @@
 </html>
 
 <!--
-MkDocs version : 1.2.1
-Build Date UTC : 2021-07-16 12:56:43.759239+00:00
+MkDocs version : 1.2.2
+Build Date UTC : 2021-07-27 12:56:35.546712+00:00
 -->
