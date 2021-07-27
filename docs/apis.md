@@ -101,7 +101,7 @@ curl --location --request POST 'http://localhost:8000/config' \
 
  **Response**
  
- ```json
+```json
 {
     "id": 8,
     "contractAddress": "0x1349f3e1b8d71effb47b840594ff27da7e603d17",
