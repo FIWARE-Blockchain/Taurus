@@ -57,6 +57,7 @@ RUN TEST
 
 ### Requirements
 In order to execute Taurus, it is needed to have previously installed the following software:
+
 Install Docker
   
 ### Instructions
