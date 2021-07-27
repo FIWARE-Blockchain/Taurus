@@ -18,3 +18,4 @@ pages:
   - Home: index.md
   - "Usage": usage.md
   - "APIs": apis.md
+  - "Installation": installation.md
