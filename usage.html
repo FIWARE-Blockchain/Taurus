@@ -57,14 +57,6 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#creation-of-a-new-listener">CREATION OF A NEW LISTENER</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#installation-guide">INSTALLATION GUIDE</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#1-localhost">1 -LOCALHOST</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#2-docker">2 -DOCKER</a>
-    </li>
-        </ul>
-    </li>
     </ul>
                     </li>
                 </ul>
@@ -111,55 +103,6 @@
                 <h1 id="usages">Usages</h1>
 <h2 id="creation-of-a-new-listener">CREATION OF A NEW LISTENER</h2>
 <p>ADD sequence diagram</p>
-<h2 id="installation-guide">INSTALLATION GUIDE</h2>
-<p>This section describes installing Taurus Blockchain Listener in two different ways:</p>
-<h3 id="1-localhost">1 -LOCALHOST</h3>
-<p>REQUIREMENTS
-In order to execute Taurus, it is needed to have previously installed the following software:
-Install python3 and pip3</p>
-<p>CLONE PROJECT
-git clone https://github.com/FIWARE-Blockchain/Taurus</p>
-<p>CONFIGURE DLT AND ORION URL (IT'S SHOULD ALREADY RUNNING)
-at apis/config.ini</p>
-<p>[ETHEREUM]
-url = http://46.17.108.87
-port = 8545</p>
-<p>[ORION]
-url = http://localhost
-port = 1026</p>
-<p>[THREAD]
-max_workers = 5</p>
-<p>INSTALL DEPENDENCIES
-pip3 install -r requirements.txt</p>
-<p>RUN
-python3 manage.py migrate
-python3 manage.py runserver --noreload</p>
-<p>RUN TEST
-Install python3 and pip3
-pip3 install -r requirements.txt
-python3 manage.py test</p>
-<h3 id="2-docker">2 -DOCKER</h3>
-<p>REQUIREMENTS
-In order to execute Taurus, it is needed to have previously installed the following software:
-Install Docker</p>
-<p>CLONE PROJECT
-git clone https://github.com/FIWARE-Blockchain/Taurus</p>
-<p>CONFIGURE DLT AND ORION URL (IT'S SHOULD ALREADY RUNNING)
-at apis/config.ini</p>
-<p>[TAURUS]
-version = 0.0.1
-port = 8080</p>
-<p>[ETHEREUM]
-url = http://46.17.108.87
-port = 8545</p>
-<p>[ORION]
-url = http://localhost
-port = 1026</p>
-<p>[THREAD]
-max_workers = 5</p>
-<p>RUN
-docker build -t taurus .
-docker run taurus</p>
               
             </div>
           </div>

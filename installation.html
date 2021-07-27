@@ -5,11 +5,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Taurus Documentation">
   
-  <link rel="canonical" href="https://taurus.readthedocs.io/index.html">
+  
+  <link rel="canonical" href="https://taurus.readthedocs.io/installation.html">
   <link rel="shortcut icon" href="img/favicon.ico">
-  <title>Taurus</title>
+  <title>INSTALLATION GUIDE - Taurus</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="css/theme.css" />
@@ -20,9 +20,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Home";
-    var mkdocs_page_input_path = "index.md";
-    var mkdocs_page_url = "/index.html";
+    var mkdocs_page_name = "INSTALLATION GUIDE";
+    var mkdocs_page_input_path = "installation.md";
+    var mkdocs_page_url = "/installation.html";
   </script>
   
   <script src="js/jquery-2.1.1.min.js" defer></script>
@@ -48,16 +48,8 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="index.html">Home</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#architecture">Architecture</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#flow-diagram">Flow Diagram</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a>
                     </li>
                 </ul>
                 <ul>
@@ -89,10 +81,10 @@
     
       
     
-    <li>Home</li>
+    <li>INSTALLATION GUIDE</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/fiware-blockchain/Taurus/docs/edit/master/docs/index.md"
+        <a href="https://github.com/fiware-blockchain/Taurus/docs/edit/master/docs/installation.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -104,35 +96,90 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="taurus">Taurus</h1>
-<p>Taurus is a blockchain listener that supports various DLT, and the listener aims to listen to Blockchain Events and store data in FIWARE. This component compliments FIWARE as an OffChainDB.</p>
-<h2 id="architecture">Architecture</h2>
-<p>TAURUS IN POWERED BY FIWARE ARCHITECTURE</p>
-<h3 id="flow-diagram">Flow Diagram</h3>
-<p>The way Taurus work's in 'Powered By FIWARE' architecture as follows:
-<img alt="Architecture Diagram" src="https://github.com/FIWARE-Blockchain/Taurus/blob/master/docs/images/architecture.png" /></p>
-<ol>
-<li>A post request "/config" from the user consists of the contract Address and attributes to listen to when a new transaction was added in a DLT.</li>
-<li>Taurus creates a new listener in the background to listen to the DLT according configuration requested.</li>
-<li>When a new transaction is added with the same contract Address previously  registered, a listener captures this information and sends it to FIWARE context Broker.</li>
-</ol>
-<p>SUPPORTED DLT CLIENTS
-- [x] Ethereum
-- [ ] IOTA
-- [ ] FABRIC Chaincode</p>
-<p>DEPENDENCIES:</p>
-<p>This project uses: python3 and pip3</p>
+                <h1 id="installation-guide">INSTALLATION GUIDE</h1>
+<p>This section describes installing Taurus Blockchain Listener in two different ways:</p>
+<h2 id="1-localhost">1 -LOCALHOST</h2>
+<h3 id="requirements">Requirements</h3>
+<pre><code>In order to execute Taurus, it is needed to have previously installed the following software:
+Install python3 and pip3
+</code></pre>
+<h3 id="instructions">Instructions</h3>
+<pre><code>CLONE PROJECT
+    ```sh
+    git clone https://github.com/FIWARE-Blockchain/Taurus
+    ```
+
+CONFIGURE DLT AND ORION URL (IT'S SHOULD ALREADY RUNNING)
+at apis/config.ini
+    ```sh 
+    [ETHEREUM]
+    url = http://46.17.108.87
+    port = 8545
+
+    [ORION]
+    url = http://localhost
+    port = 1026
+
+    [THREAD]
+    max_workers = 5
+    ```
+
+INSTALL DEPENDENCIES
+    ```sh
+    pip3 install -r requirements.txt
+    ```
+
+RUN
+    ```sh
+    python3 manage.py migrate
+    python3 manage.py runserver --noreload
+    ```
+RUN TEST
+    ```sh
+    Install python3 and pip3
+    pip3 install -r requirements.txt
+    python3 manage.py test
+    ```
+</code></pre>
+<h2 id="2-docker">2 -DOCKER</h2>
+<h3 id="requirements_1">Requirements</h3>
+<p>In order to execute Taurus, it is needed to have previously installed the following software:
+Install Docker</p>
+<h3 id="instructions_1">Instructions</h3>
+<pre><code>CLONE PROJECT
+    ```sh
+    git clone https://github.com/FIWARE-Blockchain/Taurus
+    ```
+
+CONFIGURE DLT AND ORION URL (IT'S SHOULD ALREADY RUNNING)
+at apis/config.ini
+    ```sh
+    [TAURUS]
+    version = 0.0.1
+    port = 8080
+
+    [ETHEREUM]
+    url = http://46.17.108.87
+    port = 8545
+
+    [ORION]
+    url = http://localhost
+    port = 1026
+
+    [THREAD]
+    max_workers = 5
+    ```
+
+RUN
+    ```sh
+    docker build -t taurus .
+    docker run taurus
+    ```
+</code></pre>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="usage.html" class="btn btn-neutral float-right" title="Usage">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-    </div>
   
 
   <hr/>
@@ -161,8 +208,6 @@
     
     
     
-      <span><a href="usage.html" style="color: #fcfcfc">Next &raquo;</a></span>
-    
   </span>
 </div>
     <script>var base_url = '.';</script>
@@ -177,8 +222,3 @@
 
 </body>
 </html>
-
-<!--
-MkDocs version : 1.2.2
-Build Date UTC : 2021-07-27 13:17:02.233345+00:00
--->

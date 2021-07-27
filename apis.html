@@ -59,6 +59,24 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="apis.html">APIs</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#meta">META</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#get-the-status">Get the status</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#config">CONFIG</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#get-all-the-configs">Get All the configs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get-the-config-by-id">Get the config by ID</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#delete-a-config-by-id">Delete a config by ID</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#create-a-config">Create a config</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -98,7 +116,133 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="apis">APIs</h1>
+                <h1 id="api-description">API DESCRIPTION</h1>
+<h2 id="meta">META</h2>
+<h3 id="get-the-status">Get the status</h3>
+<pre><code>```sh
+curl --location --request GET 'http://localhost:8000/version'
+```
+</code></pre>
+<p><strong>Response</strong>
+    <code>json
+    {
+        "name": "taurus",
+        "version": "0.0.1"
+    }</code></p>
+<h2 id="config">CONFIG</h2>
+<h3 id="get-all-the-configs">Get All the configs</h3>
+<pre><code>```sh
+curl --location --request GET 'http://localhost:8000/config'
+```
+</code></pre>
+<h3 id="get-the-config-by-id">Get the config by ID</h3>
+<pre><code>```sh
+curl --location --request GET 'http://localhost:8000/config/16'
+```
+</code></pre>
+<h3 id="delete-a-config-by-id">Delete a config by ID</h3>
+<pre><code>```sh
+curl --location --request DELETE 'http://localhost:8000/config/17'
+```
+</code></pre>
+<h3 id="create-a-config">Create a config</h3>
+<pre><code>```sh 
+curl --location --request POST 'http://localhost:8000/config' \
+--header 'Content-Type: application/json' \
+--data-raw ‘   "id":"event-identifier",
+   "interval":10,
+   "contractAddress":"0x1349f3e1b8d71effb47b840594ff27da7e603d17",
+   "abi":[
+      {
+         "inputs":[
+            {
+               "name":"_x",
+               "type":"uint256"
+            }
+         ],
+         "anonymous":false,
+         "name":"LogEvent",
+         "type":"event"
+      },
+      {
+         "inputs":[
+            {
+               "indexed":true,
+               "name":"_sender",
+               "type":"address"
+            }
+         ],
+         "anonymous":false,
+         "name":"LogOtherEvent",
+         "type":"event"
+      }
+   ]
+}’  "id":"event-identifier",
+   "interval":10,
+   "contractAddress":"0x1349f3e1b8d71effb47b840594ff27da7e603d17",
+   "abi":[
+      {
+         "inputs":[
+            {
+               "name":"_x",
+               "type":"uint256"
+            }
+         ],
+         "anonymous":false,
+         "name":"LogEvent",
+         "type":"event"
+      },
+      {
+         "inputs":[
+            {
+               "indexed":true,
+               "name":"_sender",
+               "type":"address"
+            }
+         ],
+         "anonymous":false,
+         "name":"LogOtherEvent",
+         "type":"event"
+      }
+   ]
+}
+```
+
+**Response**
+```json
+{
+"id": 8,
+"contractAddress": "0x1349f3e1b8d71effb47b840594ff27da7e603d17",
+"abi": [
+    {
+        "inputs": [
+            {
+                "name": "_x",
+                "type": "uint256"
+            }
+        ],
+        "anonymous": false,
+        "name": "LogEvent",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "indexed": true,
+                "name": "_sender",
+                "type": "address"
+            }
+        ],
+        "anonymous": false,
+        "name": "LogOtherEvent",
+        "type": "event"
+    }
+],
+"interval": 10
+}
+```
+</code></pre>
+<p>Try out the postman collection <a href="https://github.com/FIWARE-Blockchain/Taurus/blob/master/Taurus%20API.postman_collection.json">here</a></p>
               
             </div>
           </div>
