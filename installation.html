@@ -128,31 +128,31 @@
 </code></pre>
 <h3 id="instructions">Instructions</h3>
 <p>CLONE PROJECT</p>
-<pre><code class="language-sh">    git clone https://github.com/FIWARE-Blockchain/Taurus
+<pre><code class="language-sh">git clone https://github.com/FIWARE-Blockchain/Taurus
 </code></pre>
 <p>CONFIGURE DLT AND ORION URL (IT'S SHOULD ALREADY RUNNING) at apis/config.ini</p>
-<pre><code class="language-sh">    [ETHEREUM]
-    url = http://46.17.108.87
-    port = 8545
+<pre><code class="language-sh">[ETHEREUM]
+url = http://46.17.108.87
+port = 8545
 
-    [ORION]
-    url = http://localhost
-    port = 1026
+[ORION]
+url = http://localhost
+port = 1026
 
-    [THREAD]
-    max_workers = 5
+[THREAD]
+max_workers = 5
 </code></pre>
 <p>INSTALL DEPENDENCIES</p>
-<pre><code class="language-sh">    pip3 install -r requirements.txt
+<pre><code class="language-sh">pip3 install -r requirements.txt
 </code></pre>
 <p>RUN</p>
-<pre><code class="language-sh">    python3 manage.py migrate
-    python3 manage.py runserver --noreload
+<pre><code class="language-sh">python3 manage.py migrate
+python3 manage.py runserver --noreload
 </code></pre>
 <p>RUN TEST</p>
-<pre><code class="language-sh">    Install python3 and pip3
-    pip3 install -r requirements.txt
-    python3 manage.py test
+<pre><code class="language-sh">Install python3 and pip3
+pip3 install -r requirements.txt
+python3 manage.py test
 </code></pre>
 <h2 id="2-docker">2 -DOCKER</h2>
 <h3 id="requirements_1">Requirements</h3>
@@ -160,27 +160,27 @@
 <p>Install Docker</p>
 <h3 id="instructions_1">Instructions</h3>
 <p>CLONE PROJECT</p>
-<pre><code class="language-sh">    git clone https://github.com/FIWARE-Blockchain/Taurus
+<pre><code class="language-sh">git clone https://github.com/FIWARE-Blockchain/Taurus
 </code></pre>
 <p>CONFIGURE DLT AND ORION URL (IT'S SHOULD ALREADY RUNNING) at apis/config.ini</p>
-<pre><code class="language-sh">    [TAURUS]
-    version = 0.0.1
-    port = 8080
+<pre><code class="language-sh">[TAURUS]
+version = 0.0.1
+port = 8080
 
-    [ETHEREUM]
-    url = http://46.17.108.87
-    port = 8545
+[ETHEREUM]
+url = http://46.17.108.87
+port = 8545
 
-    [ORION]
-    url = http://localhost
-    port = 1026
+[ORION]
+url = http://localhost
+port = 1026
 
-    [THREAD]
-    max_workers = 5
+[THREAD]
+max_workers = 5
 </code></pre>
 <p>RUN</p>
-<pre><code class="language-sh">    docker build -t taurus .
-    docker run taurus
+<pre><code class="language-sh">docker build -t taurus .
+docker run taurus
 </code></pre>
               
             </div>
