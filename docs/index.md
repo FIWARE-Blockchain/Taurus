@@ -20,6 +20,7 @@ The way Taurus work's in 'Powered By FIWARE' architecture as follows:
 
 
 SUPPORTED DLT CLIENTS
+
 - [x] Ethereum
 - [ ] IOTA
 - [ ] FABRIC Chaincode
