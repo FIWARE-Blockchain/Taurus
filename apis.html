@@ -123,129 +123,117 @@
                 <h1 id="api-description">API DESCRIPTION</h1>
 <h2 id="meta">META</h2>
 <h3 id="get-the-status">Get the status</h3>
-<pre><code>```sh
-curl --location --request GET 'http://localhost:8000/version'
-```
+<pre><code class="language-sh">curl --location --request GET 'http://localhost:8000/version'
 </code></pre>
-<p><strong>Response</strong>
-    <code>json
-    {
-        "name": "taurus",
-        "version": "0.0.1"
-    }</code></p>
+<p><strong>Response</strong></p>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;taurus&quot;,
+    &quot;version&quot;: &quot;0.0.1&quot;
+}
+</code></pre>
 <h2 id="config">CONFIG</h2>
 <h3 id="get-all-the-configs">Get All the configs</h3>
-<pre><code>```sh
-curl --location --request GET 'http://localhost:8000/config'
-```
+<pre><code class="language-sh">curl --location --request GET 'http://localhost:8000/config'
 </code></pre>
 <h3 id="get-the-config-by-id">Get the config by ID</h3>
-<pre><code>```sh
-curl --location --request GET 'http://localhost:8000/config/16'
-```
+<pre><code class="language-sh">curl --location --request GET 'http://localhost:8000/config/16'
 </code></pre>
 <h3 id="delete-a-config-by-id">Delete a config by ID</h3>
-<pre><code>```sh
-curl --location --request DELETE 'http://localhost:8000/config/17'
-```
+<pre><code class="language-sh">curl --location --request DELETE 'http://localhost:8000/config/17'
 </code></pre>
 <h3 id="create-a-config">Create a config</h3>
-<pre><code>```sh 
-curl --location --request POST 'http://localhost:8000/config' \
+<pre><code class="language-sh">curl --location --request POST 'http://localhost:8000/config' \
 --header 'Content-Type: application/json' \
---data-raw ‘   "id":"event-identifier",
-   "interval":10,
-   "contractAddress":"0x1349f3e1b8d71effb47b840594ff27da7e603d17",
-   "abi":[
+--data-raw ‘   &quot;id&quot;:&quot;event-identifier&quot;,
+   &quot;interval&quot;:10,
+   &quot;contractAddress&quot;:&quot;0x1349f3e1b8d71effb47b840594ff27da7e603d17&quot;,
+   &quot;abi&quot;:[
       {
-         "inputs":[
-            {
-               "name":"_x",
-               "type":"uint256"
-            }
-         ],
-         "anonymous":false,
-         "name":"LogEvent",
-         "type":"event"
+     &quot;inputs&quot;:[
+        {
+           &quot;name&quot;:&quot;_x&quot;,
+           &quot;type&quot;:&quot;uint256&quot;
+        }
+     ],
+     &quot;anonymous&quot;:false,
+     &quot;name&quot;:&quot;LogEvent&quot;,
+     &quot;type&quot;:&quot;event&quot;
       },
       {
-         "inputs":[
-            {
-               "indexed":true,
-               "name":"_sender",
-               "type":"address"
-            }
-         ],
-         "anonymous":false,
-         "name":"LogOtherEvent",
-         "type":"event"
+     &quot;inputs&quot;:[
+        {
+           &quot;indexed&quot;:true,
+           &quot;name&quot;:&quot;_sender&quot;,
+           &quot;type&quot;:&quot;address&quot;
+        }
+     ],
+     &quot;anonymous&quot;:false,
+     &quot;name&quot;:&quot;LogOtherEvent&quot;,
+     &quot;type&quot;:&quot;event&quot;
       }
    ]
-}’  "id":"event-identifier",
-   "interval":10,
-   "contractAddress":"0x1349f3e1b8d71effb47b840594ff27da7e603d17",
-   "abi":[
+}’  &quot;id&quot;:&quot;event-identifier&quot;,
+   &quot;interval&quot;:10,
+   &quot;contractAddress&quot;:&quot;0x1349f3e1b8d71effb47b840594ff27da7e603d17&quot;,
+   &quot;abi&quot;:[
       {
-         "inputs":[
-            {
-               "name":"_x",
-               "type":"uint256"
-            }
-         ],
-         "anonymous":false,
-         "name":"LogEvent",
-         "type":"event"
+     &quot;inputs&quot;:[
+        {
+           &quot;name&quot;:&quot;_x&quot;,
+           &quot;type&quot;:&quot;uint256&quot;
+        }
+     ],
+     &quot;anonymous&quot;:false,
+     &quot;name&quot;:&quot;LogEvent&quot;,
+     &quot;type&quot;:&quot;event&quot;
       },
       {
-         "inputs":[
-            {
-               "indexed":true,
-               "name":"_sender",
-               "type":"address"
-            }
-         ],
-         "anonymous":false,
-         "name":"LogOtherEvent",
-         "type":"event"
+     &quot;inputs&quot;:[
+        {
+           &quot;indexed&quot;:true,
+           &quot;name&quot;:&quot;_sender&quot;,
+           &quot;type&quot;:&quot;address&quot;
+        }
+     ],
+     &quot;anonymous&quot;:false,
+     &quot;name&quot;:&quot;LogOtherEvent&quot;,
+     &quot;type&quot;:&quot;event&quot;
       }
    ]
 }
-```
-
-**Response**
-```json
-{
-"id": 8,
-"contractAddress": "0x1349f3e1b8d71effb47b840594ff27da7e603d17",
-"abi": [
-    {
-        "inputs": [
-            {
-                "name": "_x",
-                "type": "uint256"
-            }
-        ],
-        "anonymous": false,
-        "name": "LogEvent",
-        "type": "event"
-    },
-    {
-        "inputs": [
-            {
-                "indexed": true,
-                "name": "_sender",
-                "type": "address"
-            }
-        ],
-        "anonymous": false,
-        "name": "LogOtherEvent",
-        "type": "event"
-    }
-],
-"interval": 10
-}
-```
 </code></pre>
+<p><strong>Response</strong></p>
+<p><code>json
+{
+    "id": 8,
+    "contractAddress": "0x1349f3e1b8d71effb47b840594ff27da7e603d17",
+    "abi": [
+        {
+            "inputs": [
+                {
+                    "name": "_x",
+                    "type": "uint256"
+                }
+            ],
+            "anonymous": false,
+            "name": "LogEvent",
+            "type": "event"
+        },
+        {
+            "inputs": [
+                {
+                    "indexed": true,
+                    "name": "_sender",
+                    "type": "address"
+                }
+            ],
+            "anonymous": false,
+            "name": "LogOtherEvent",
+            "type": "event"
+        }
+    ],
+    "interval": 10
+}</code></p>
 <p>Try out the postman collection <a href="https://github.com/FIWARE-Blockchain/Taurus/blob/master/Taurus%20API.postman_collection.json">here</a></p>
               
             </div>
