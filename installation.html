@@ -100,82 +100,69 @@
 <p>This section describes installing Taurus Blockchain Listener in two different ways:</p>
 <h2 id="1-localhost">1 -LOCALHOST</h2>
 <h3 id="requirements">Requirements</h3>
-<pre><code>In order to execute Taurus, it is needed to have previously installed the following software:
-Install python3 and pip3
-</code></pre>
+<p>In order to execute Taurus, it is needed to have previously installed the following software:
+    <code>sh
+    Install python3 and pip3</code>sh</p>
 <h3 id="instructions">Instructions</h3>
-<pre><code>CLONE PROJECT
-    ```sh
-    git clone https://github.com/FIWARE-Blockchain/Taurus
-    ```
-
-CONFIGURE DLT AND ORION URL (IT'S SHOULD ALREADY RUNNING)
+<p>CLONE PROJECT
+    <code>sh
+    git clone https://github.com/FIWARE-Blockchain/Taurus</code></p>
+<p>CONFIGURE DLT AND ORION URL (IT'S SHOULD ALREADY RUNNING)
 at apis/config.ini
     ```sh 
     [ETHEREUM]
     url = http://46.17.108.87
-    port = 8545
+    port = 8545</p>
+<pre><code>[ORION]
+url = http://localhost
+port = 1026
 
-    [ORION]
-    url = http://localhost
-    port = 1026
-
-    [THREAD]
-    max_workers = 5
-    ```
-
-INSTALL DEPENDENCIES
-    ```sh
-    pip3 install -r requirements.txt
-    ```
-
-RUN
-    ```sh
+[THREAD]
+max_workers = 5
+```
+</code></pre>
+<p>INSTALL DEPENDENCIES
+    <code>sh
+    pip3 install -r requirements.txt</code></p>
+<p>RUN
+    <code>sh
     python3 manage.py migrate
-    python3 manage.py runserver --noreload
-    ```
+    python3 manage.py runserver --noreload</code>
 RUN TEST
-    ```sh
+    <code>sh
     Install python3 and pip3
     pip3 install -r requirements.txt
-    python3 manage.py test
-    ```
-</code></pre>
+    python3 manage.py test</code></p>
 <h2 id="2-docker">2 -DOCKER</h2>
 <h3 id="requirements_1">Requirements</h3>
 <p>In order to execute Taurus, it is needed to have previously installed the following software:
 Install Docker</p>
 <h3 id="instructions_1">Instructions</h3>
-<pre><code>CLONE PROJECT
-    ```sh
-    git clone https://github.com/FIWARE-Blockchain/Taurus
-    ```
-
-CONFIGURE DLT AND ORION URL (IT'S SHOULD ALREADY RUNNING)
+<p>CLONE PROJECT
+    <code>sh
+    git clone https://github.com/FIWARE-Blockchain/Taurus</code></p>
+<p>CONFIGURE DLT AND ORION URL (IT'S SHOULD ALREADY RUNNING)
 at apis/config.ini
     ```sh
     [TAURUS]
     version = 0.0.1
-    port = 8080
+    port = 8080</p>
+<pre><code>[ETHEREUM]
+url = http://46.17.108.87
+port = 8545
 
-    [ETHEREUM]
-    url = http://46.17.108.87
-    port = 8545
+[ORION]
+url = http://localhost
+port = 1026
 
-    [ORION]
-    url = http://localhost
-    port = 1026
-
-    [THREAD]
-    max_workers = 5
-    ```
-
-RUN
-    ```sh
-    docker build -t taurus .
-    docker run taurus
-    ```
+[THREAD]
+max_workers = 5
+```
 </code></pre>
+<p>RUN
+    <code>sh
+    docker build -t taurus .
+    docker run taurus</code></p>
               
             </div>
           </div>
