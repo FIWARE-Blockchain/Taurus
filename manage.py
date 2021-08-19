@@ -20,7 +20,7 @@ def main():
 
     taurus_info = config_object["TAURUS"]
 
-    port = taurus_info["port"]
+    port = os.getenv( 'TAURUS_PORT' , taurus_info["port"])
 
     # Override default port for `runserver` command
     from django.core.management.commands.runserver import Command as runserver

@@ -28,8 +28,7 @@ at apis/config.ini
 	 
 	[THREAD]
 	max_workers = 5
-	``` 
-	 
+	```	 
 INSTALL DEPENDENCIES
 	```sh
 	pip3 install -r requirements.txt

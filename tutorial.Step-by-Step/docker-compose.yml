@@ -1,0 +1,59 @@
+version: '2'
+services:
+	taurus:
+	    build:
+	      context:https://github.com/FIWARE-Blockchain/Taurus.git
+	    container_name: fiware-taurus
+	    hostname: taurus	
+	    ports:
+	      - '4001:4001'
+	    environment: 
+			  - TAURUS_PORT=4001
+			  - ETHEREUM_URL=localhost
+			  - ETHEREUM_PORT=30303
+			  - ORION_URL=localhost
+			  - ORION_PORT=1026
+			  - THREADS=10
+	    healthcheck:
+	      interval: 5s
+
+	 orion:
+    image: fiware/orion-ld:0.7.0
+    hostname: orion
+    container_name: fiware-orion
+    depends_on:
+      - mongo-db
+    ports:
+      - "1026:1026" # localhost:1026
+    command: -dbhost mongo-db -logLevel DEBUG -forwarding
+    healthcheck:
+      # test: curl --fail -s http://orion:$1026/version || exit 1
+      interval: 5s
+
+
+   # Databases
+  mongo-db:
+    image: mongo:4.4
+    hostname: mongo-db
+    container_name: db-mongo
+    expose:
+      - "27017"
+    ports:
+      - "27017:27017" # localhost:27017
+    networks:
+      - default
+    volumes:
+      - mongo-db:/data
+    healthcheck:
+      test: |
+        host=`hostname --ip-address || echo '127.0.0.1'`; 
+        mongo --quiet $host/test --eval 'quit(db.runCommand({ ping: 1 }).ok ? 0 : 2)' && echo 0 || echo 1     
+
+   #DLT
+  ethreum:
+  	build:
+	      context:https://github.com/ethereum/go-ethereum.git
+	    container_name: ethereum-goethereum
+	    hostname: ethereum
+	    ports:
+	      - '30303:30303'

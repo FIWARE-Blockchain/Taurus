@@ -20,7 +20,7 @@ def listnerLoop():
 
     ethereum_info = config_object["ETHEREUM"]
 
-    url = ethereum_info["url"] + ":" + ethereum_info["port"]
+    url = os.getenv( 'ETHEREUM_URL' + ":" + 'ETHEREUM_PORT', ethereum_info["url"] + ":" + ethereum_info["port"])
     try:
         w3 = Web3(Web3.HTTPProvider(url, request_kwargs={'timeout': 60}))
         print ("Connection in " + url + " :"+ str(w3.isConnected()))
@@ -29,12 +29,13 @@ def listnerLoop():
         print("Web3 connection error!")
         print(e)
 
-    poll_interval = 10    
-    executor = ThreadPoolExecutor(int(config_object["THREAD"]["max_workers"]))
+    poll_interval = 10
+    workers = os.getenv( 'THREADS', config_object["THREAD"]["max_workers"] )    
+    executor = ThreadPoolExecutor(int(workers))
 
 
     orion_info = config_object["ORION"]
-    orion_endpoint= orion_info["url"] + ":" + orion_info["port"]
+    orion_endpoint=  url = os.getenv( 'ORION_URL' + ":" + 'ORION_PORT', orion_info["url"] + ":" + orion_info["port"])
 
     while True:
         configs = Config.objects.all()        

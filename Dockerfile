@@ -22,3 +22,15 @@ EXPOSE 8000
 CMD ["python3", "manage.py", "migrate"]
 
 CMD ["python3", "manage.py", "runserver"]
+
+
+# ALL ENVIRONMENT VARIABLES
+########################################################################################
+#
+#  - TAURUS_PORT
+#  - ETHEREUM_URL
+#  - ETHEREUM_PORT
+#  - ORION_URL
+#  - ORION_PORT
+#  - THREADS
+########################################################################################
