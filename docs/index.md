@@ -11,7 +11,7 @@ TAURUS IN POWERED BY FIWARE ARCHITECTURE
 ### Flow Diagram
  
 The way Taurus work's in 'Powered By FIWARE' architecture as follows:
-![Architecture Diagram](https://github.com/FIWARE-Blockchain/Taurus/blob/master/docs/images/architecture.png)
+![Architecture Diagram](https://raw.githubusercontent.com/FIWARE-Blockchain/Taurus/master/docs/images/architecture.png)
 
 
 1. A post request "/config" from the user consists of the contract Address and attributes to listen to when a new transaction was added in a DLT.
@@ -20,6 +20,7 @@ The way Taurus work's in 'Powered By FIWARE' architecture as follows:
 
 
 SUPPORTED DLT CLIENTS
+
 - [x] Ethereum
 - [ ] IOTA
 - [ ] FABRIC Chaincode
